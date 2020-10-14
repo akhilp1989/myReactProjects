@@ -6,6 +6,8 @@ import { Provider } from 'react-redux'
 import 'todomvc-app-css/index.css' 
 import reducer from './Reducers'
 import { createStore } from 'redux';
+import 'todomvc-app-css/index.css'
+
 
 const store=createStore(reducer)
 

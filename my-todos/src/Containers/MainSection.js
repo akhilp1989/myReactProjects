@@ -1,8 +1,8 @@
 import React from 'react'
-
-const mainSection = ({ props }) => {
-    return (
-        <p>This is the main section</p>
+import MainSection from '../Components/MainSection'
+const mainSection = () => {
+    return(
+        <MainSection></MainSection>
     )
 }
 export default mainSection

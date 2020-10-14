@@ -7,7 +7,7 @@ class TodoTextInput extends Component {
         onSave: PropTypes.func.isRequired,
         text: PropTypes.string,
         placeHolder: PropTypes.string,
-        newTodo: PropTypes.string,
+        newTodo: PropTypes.bool,
         editing:PropTypes.bool
     }
    state= {
@@ -28,11 +28,13 @@ class TodoTextInput extends Component {
     }
 
     handleBlur = (event) => {
+       
         if (!this.props.newTodo) {
             this.props.onSave(event.target.value)
         }
     }
     render() {
+       
         return (
             <input className={
                 classnames({
@@ -40,7 +42,7 @@ class TodoTextInput extends Component {
                     'new-todo':this.props.newTodo
                 })}
                 type="text"
-                placeholder={this.props.placeHolder}
+                placeholder={this.props.placeholder}
                 value={this.props.text}
                 onChange={this.handleChange}
                 onKeyDown={this.handleSubmit}
