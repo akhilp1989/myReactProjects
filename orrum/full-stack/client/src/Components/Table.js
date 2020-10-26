@@ -31,11 +31,12 @@ class Table extends Component {
     updatePhoneMap = (obj) => {
         var origPhoneMap = [...this.state.phoneMap]
         origPhoneMap.map(k => {
-      
-            if (k.id == obj.id) {
-                //console.log('found')
-                k.status=obj.status
-            }
+            obj.map(j => {
+                if (k.phoneNumber == j.phoneNumber) {
+                    k.status=j.status
+                }
+            })
+            
         })
 
         this.setState({phoneMap:origPhoneMap})

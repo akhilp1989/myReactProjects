@@ -11,46 +11,45 @@ var PORT = 5000
 var events = require('events');
 var progressEmitter = new events.EventEmitter();
 var phoneMap = [{
-    id:'1',
     phoneNumber: '13018040009',
     status: 'idle'
 },
-{   id:'2',
+{   
     phoneNumber: '19842068287',
     status: 'idle'
 },
-{   id:'3',
+{   
     phoneNumber: '15512459377',
     status: 'idle'
 },
-{   id:'4',
+{   
     phoneNumber: '19362072765',
     status: 'idle'
 },
-{   id:'5',
+{   
     phoneNumber: '18582210308',
     status: 'idle'
 },
-{   id:'6',
+{   
     phoneNumber: '13018040009',
     status: 'idle'
 },
-{   id:'7',
+{   
     phoneNumber: '19842068287',
     status: 'idle'
 },
-{   id:'8',
+{   
     phoneNumber: '15512459377',
     status: 'idle'
 },
-{   id:'9',
+{   
     phoneNumber: '19362072765',
     status: 'idle'
 }
     
 ]
-    
-var nextId=3
+var phoneId=[]
+var nextId=1
 var WEBHOOK_URL='http://localhost:5000/api/call'
 var API_URL = 'http://localhost:4830/call'
 app.get('/', async (req, resp) => {
@@ -66,38 +65,52 @@ app.get('/getData', function (req, resp) {
         
     })
  
-app.post('/start', async (req,resp) => {
-    populateAndCall(phoneMap[0].phoneNumber)
-     populateAndCall(phoneMap[1].phoneNumber)
-    populateAndCall(phoneMap[2].phoneNumber)
+app.post('/start', async (req, resp) => {
+    for (var i = 0; i <= 2; i++){
+        populateAndCall(phoneMap[i].phoneNumber)
+        nextId++
+    }
+    resp.send('done')
 })
 
 populateAndCall = async (phone) => {
-    //console.log('calling phone-',phone)
     var data = {
         phone: phone,
         webhookURL:WEBHOOK_URL
    }
     try {
-         await axios.default.post(API_URL, data)
-    }
+        axios.default.post(API_URL, data)
+            .then(resp=>createPhoneId(resp.data.id,phone))
+       }
     catch(e){
         console.log('Error-',e)
     }   
-   
+    
 }
 
-
+createPhoneId=(id, phone)=>{
+    phoneId.push({'id':id,'phone':phone})
+}
+removeId = (id) => {
+    for (var i = 0; i < phoneId.length;i++) {
+        if (phoneId[i].id == id) {
+            phoneId.splice(i,1)
+        }
+    }
+   // console.log(phoneId)
+}
 app.post('/api/call', async (req, resp) => {
     console.log(req.body)
     updatePhoneData(req.body)
     if (req.body.status === 'completed') {
+        removeId(req.body.id)
          callNextNumber()
     }
     resp.end("updated ")
     
 })
 callNextNumber = () => {
+    //console.log(nextId)
     if (nextId <phoneMap.length) {
         //console.log(phoneMap[nextId].phoneNumber)
         populateAndCall(phoneMap[nextId].phoneNumber)
@@ -106,12 +119,20 @@ callNextNumber = () => {
 }
 
 updatePhoneData = (obj) => {
-    phoneMap.map(k => {
+   // console.log(phoneId)
+    phoneId.map(k => {
         if (k.id == obj.id) {
-            k.status = obj.status 
-        }
-    })
-    progressEmitter.emit('update',obj) 
-   //console.log(phoneMap)
+    
+            phoneMap.map(x => {
+      
+                if (k.phone == x.phoneNumber) {
+               
+                   x.status=obj.status
+               }
+           })
+       }
+   })
+    progressEmitter.emit('update',phoneMap) 
+  
 }
 app.listen(PORT, () => console.log(` Server running on port ${PORT}`))
