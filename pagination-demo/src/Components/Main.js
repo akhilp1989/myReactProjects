@@ -48,7 +48,9 @@ class Main extends Component{
     }
     render() {
         const res = this.state.results;
-        if(this.state.isFetching)return <p>Fetching</p>
+        var showFirst = this.state.isFetching || this.state.currentPage === 0
+        var showLast=this.state.isFetching || this.state.currentPage===this.state.lastPageIndex
+    
         return (
             <div>
             <table className="table">
@@ -72,14 +74,14 @@ class Main extends Component{
              
               </tbody>
             </table>
-            <section className="pagination">
-              <button onClick={this.showFirst} className="first-page-btn">first</button>
-                <button onClick={()=>this.move(-1)}className="previous-page-btn">previous</button>
-                    <button onClick={()=>this.move(1)}className="next-page-btn">next</button>
-              <button onClick={this.showLast} className="last-page-btn">last</button>
-                </section>
-                <section className="number">
-                    <span>{this.state.currentPage+1}</span>
+            <section className="pagination" >
+              <button disabled={showFirst} onClick={this.showFirst} className="first-page-btn">first</button>
+                <button disabled={showFirst} onClick={()=>this.move(-1)}className="previous-page-btn">previous</button>
+                    <button disabled={showLast} onClick={()=>this.move(1)}className="next-page-btn">next</button>
+                    <button disabled={showLast} onClick={this.showLast} className="last-page-btn">last</button>
+                    <br />
+                    Current Page:<span>{this.state.currentPage+1}</span>
+                    
             </section>
           </div>
         )
