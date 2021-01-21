@@ -1,7 +1,8 @@
 import React, { Component }from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { createStream } from '../../actions/createStream'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import Button from 'react-bootstrap/Button'
 
 class StreamCreate extends Component {
     // eslint-disable-next-line no-useless-constructor
@@ -33,7 +34,7 @@ class StreamCreate extends Component {
                 <Field name='title' component={this.renderInput}  label='Enter Title'/>
                 <Field name='description' component={this.renderInput}
                     label='Enter Description' />
-                <button >Submit</button>
+               <button className='primary'>Submit</button>
             </form>
         )
     }

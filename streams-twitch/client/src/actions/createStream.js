@@ -31,10 +31,12 @@ export const editStream = (id,formValues)=> {
 }
    
 }
-export const deleteStream = (id)=> {
+export const deleteStream = (id) => {
+    console.log('inside delete',id  )
     return async function (dispatch) {
         await axios.delete(`/streams/${id}`)
-        dispatch({type:'DELETE_STREAM',payload:id})
+        dispatch({ type: 'DELETE_STREAM', payload: id })
+        history.push('/')
 }
    
 }

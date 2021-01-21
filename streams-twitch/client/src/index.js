@@ -8,6 +8,7 @@ import { createStore,applyMiddleware } from 'redux'
 import { reducer } from './reducer/reducer'
 import thunk from 'redux-thunk'
 import history from './history'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const store=createStore(reducer,applyMiddleware(thunk))

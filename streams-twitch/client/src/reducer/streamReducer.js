@@ -1,3 +1,4 @@
+import _  from 'lodash';
 export const streamReducer = (state = {}, action) => {
     switch (action.type) {
         
@@ -16,11 +17,9 @@ export const streamReducer = (state = {}, action) => {
                 ...state,
                 [action.payload.id]:action.payload
             }
-            case 'DELETE_STREAM':
-                return {
-                    ...state,
-                    [action.payload]:undefined
-                }
+        case 'DELETE_STREAM':
+            
+            return { ..._.omit(state, action.payload) }
         case 'FETCH_STREAMS':
             let newObj={}
             action.payload.map(k => {

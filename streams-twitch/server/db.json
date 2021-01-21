@@ -1,14 +1,9 @@
 {
   "streams": [
     {
-      "title": "First1",
-      "description": "first1",
+      "title": "first",
+      "description": "descrip",
       "id": 1
-    },
-    {
-      "title": "Second1",
-      "description": "second1",
-      "id": 2
     }
   ]
 }
