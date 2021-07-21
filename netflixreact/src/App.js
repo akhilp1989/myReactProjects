@@ -3,10 +3,7 @@ import Jumbotron from './Components/Jumbotron'
 import jumboData from './fixtures/jumbo.json'
 
 function App() {
-  return (
-    <p>Hello 5</p>
-    <p>Hello 4</p>
-  )
+  return <div><p>Hello1</p><p>Hello 2</p></div>
 }
 
 export default App;
