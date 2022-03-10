@@ -1,9 +1,11 @@
-# Setup
-1.unzip the repo and go to `finance-dashboard/src`.
-2. Run `yarn install` 
+# Setup:
+1. Unzip the folder and go to `finance-dashboard/src`
+2. Run `yarn install`
 3. Once that is done, run `yarn start`
-This will start the client on `localhost:3000`
-For server: Go to `finance-dashboard/src/server` and run `yarn start`
+4. This will start the client on `localhost:3000`
+5. For server: Go to `finance-dashboard/src/server` and run `yarn start`
+6. This will run the server at `http://localhost:8080`
+
 
 
 ## Development Details:
