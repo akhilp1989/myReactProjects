@@ -6,18 +6,15 @@ constructor(){
 }
 
 validateLogin(data){
-    const {email,pass} =  data;
-    if(this.map.has(email)){
-        if(this.map.get(email).password === pass){
-            return true;
+    return new Promise((resolve,reject)=>{
+        const {email,pass} =  data;
+        if(this.map.has(email) && this.map.get(email).password === pass){
+            resolve(this.map.get(email));
         }
         else{
-            return false;
+            reject('User not found');
         }
-    }
-    else{
-        return false;
-    }
+    })
 }
 
 

@@ -1,8 +1,14 @@
 #root {
   height: 100vh;
-  background: #eee;
+  background: url('https://t4.ftcdn.net/jpg/02/55/05/43/240_F_255054305_aBeKg5BoN5Kh4sk5I6OzaNeZQ3LKh0d8.jpg');
   padding: 1em;
+  background-repeat: no-repeat;
+  background-size: 100%,100%;
 
+}
+.slack-welcome {
+  text-align: center;
+  color: greenyellow;
 }
 
  
