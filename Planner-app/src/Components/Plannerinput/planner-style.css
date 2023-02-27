@@ -1,0 +1,56 @@
+/* .input-form{
+    display: none;
+} */
+.form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid wheat;
+    padding:1rem;
+    gap:1rem;
+    width: 500px;
+}
+.date-area{
+    display: flex;
+    justify-content: space-between;
+    gap:0.5rem;
+    padding: 1rem;
+    width: 100%;
+}
+.input-form{
+
+    pointer-events: none;
+    opacity: 0;
+}
+.input-form-show{
+    padding: 2rem;
+    position:fixed;
+ 
+    top:3rem;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    width: auto;
+    background-color: gray;
+    z-index: 200;
+   
+   pointer-events: visible;
+   transition: all 1s ease-in-out;
+}
+.add-task{
+    cursor: pointer;
+    width: 100%;
+    margin: 1rem 0;
+  
+}
+.items{
+    width: 100%;
+
+    text-align: center;
+    background-color: gray;
+    border: 1px solid saddlebrown;
+    margin-bottom: 1rem;
+
+}
