@@ -90,7 +90,7 @@ var _renderhelper = __webpack_require__(4);
 
 var _renderhelper2 = _interopRequireDefault(_renderhelper);
 
-var _createStore = __webpack_require__(8);
+var _createStore = __webpack_require__(9);
 
 var _createStore2 = _interopRequireDefault(_createStore);
 
@@ -136,7 +136,7 @@ var _Routes2 = _interopRequireDefault(_Routes);
 
 var _reactRouterDom = __webpack_require__(1);
 
-var _reactRedux = __webpack_require__(11);
+var _reactRedux = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -222,6 +222,12 @@ exports.default = MyComponent;
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -231,9 +237,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(9);
+var _redux = __webpack_require__(10);
 
-var _reduxThunk = __webpack_require__(10);
+var _reduxThunk = __webpack_require__(11);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -245,22 +251,16 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-thunk");
-
-/***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-redux");
+module.exports = require("redux-thunk");
 
 /***/ })
 /******/ ]);
