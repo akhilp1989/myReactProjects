@@ -1,0 +1,29 @@
+.main{
+    display: flex;
+    justify-content: space-between;
+    gap:2rem;
+}
+
+.post-items{
+    border: 2px solid white;
+    width:50%
+}
+.post{
+    display: flex;
+    gap:1.5rem;
+   
+}
+.filter{
+width: 300px;
+}
+.header{
+    display:flex;
+    justify-content: space-between;
+    background-color: brown;
+}
+.input-show{
+    display: block;
+}
+.input-hide{
+    display: none;
+}
