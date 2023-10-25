@@ -1,10 +1,12 @@
 import React from "react";
 
-function MyComponent(props) {
+function Home(props) {
   return (
     <div>
       <h1>Hello World</h1>
     </div>
   );
 }
-export default MyComponent;
+export default {
+  component: Home,
+};

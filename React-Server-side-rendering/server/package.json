@@ -6,7 +6,7 @@
   "scripts": {
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev:builds-server": "webpack --config webpack.server.js --watch",
-    "dev:buils-client": "webpack --config webpack.client.js --watch",
+    "dev:builds-client": "webpack --config webpack.client.js --watch",
     "dev": "npm-run-all --parallel dev:*"
   },
   "author": "",
