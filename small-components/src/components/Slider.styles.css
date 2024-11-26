@@ -1,0 +1,36 @@
+input {
+  width: 40px;
+  margin-block-end: 10px;
+}
+.slider-wrapper {
+  padding-left: 40px;
+  width: 80vw;
+}
+.slider-container {
+  height: 16px;
+  background-color: lightgray;
+}
+.slider {
+  position: relative;
+  height: inherit;
+  background-color: blue;
+}
+.slider-button {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+
+  border: none;
+  background-color: black;
+  inline-size: 20px;
+  height: inherit;
+}
+.slider-button,
+.slider-container,
+.slider:hover {
+  cursor: pointer;
+}
+.slider-footer {
+  display: flex;
+  justify-content: space-between;
+}

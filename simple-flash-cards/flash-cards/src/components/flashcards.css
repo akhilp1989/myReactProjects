@@ -1,0 +1,14 @@
+.cards-wrapper {
+  display: flex;
+  gap: 16px;
+}
+.cards {
+  height: 100px;
+  width: 100px;
+  background-color: azure;
+  color: black;
+}
+.selected {
+  background-color: red;
+  width: 100px;
+}
